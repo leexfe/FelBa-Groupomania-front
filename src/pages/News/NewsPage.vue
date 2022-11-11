@@ -22,8 +22,6 @@ export default {
   beforeCreate() {
     // Récupère token d'authentification,userId, isAdmin dans localStorage:
     const token = localStorage.getItem('token')
-    // const userId = localStorage.getItem('userId')
-    // const isAdmin = localStorage.getItem('isAdmin')
     //redirige l'uilisateur vers la page de connexion si pas de token:
     if (token == null) {
       this.$router.push('/login')

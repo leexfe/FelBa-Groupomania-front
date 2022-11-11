@@ -192,7 +192,7 @@ export default {
     generateInputId(id) {
       return 'inputFile' + id
     },
-    displayLike() {},
+   
   },
 }
 </script>
@@ -236,7 +236,7 @@ export default {
       <!----------- div Modif -------------- -->
       <div>
         <p class="card-text border-comment"></p>
-        <div id="appshow" class="mt-4" v-show="isActive">
+        <div  class="mt-4" v-show="isActive">
           <div class="d-flex bold">
             <p>Modifiez votre Post ci-dessous :</p>
             <i class="bi bi-arrow-down-square ms-2"></i>
@@ -297,30 +297,19 @@ export default {
                 @click="sendToLikePost"
               />
 
-              <!-- <input
-                type="button"
-                name="button"
-                v-bind:id="this.$props.id"
-                v-model="liked"
-                @click="sendToLikePost"
-              /> -->
-
               <label v-bind:for="this.$props.id">
-                <!-- <div @click="isLiked = !isLiked"> -->
-                <div @click="isLiked = !isLiked">
+                <div  @click="isLiked = !isLiked">
                   <i class="icon-heart fas fa-heart"></i>
                 </div>
               </label>
             </div>
           </div>
-          <!-- --------------- affichage j'aime -------------- -->
-          <!-- <p id="show" class="text-like" v-if="isLiked"><b>J'aime</b></p> -->
-          <p id="show" class="text-like" v-if="isLiked"><b>J'aime</b></p>
+          <!-- ------- affichage j'aime -------------- -->
+          <p class="text-like" v-if="isLiked "><b>J'aime</b></p>
         </div>
         <div class="bold">likes: {{ usersLiker.length }}</div>
       </div>
       <div v-for="comment in comments" v-bind:key="comment">
-        <!-- <ATTENTION dans <CommentVue> user devant email pour afficher variable {{email}} (voir relation fields)  -->
         <CommentVue
           class="mb-1"
           :email="comment.user.email"
@@ -365,12 +354,9 @@ body {
 }
 
 .icon-heart:hover {
-  animation: scaler 0.8s infinite linear;
-}
-
-.fa-heart:hover {
   color: rgba(251, 38, 38, 0.5);
 }
+
 .like-container input {
   display: none;
 }
@@ -423,9 +409,7 @@ input[type='checkbox'] + label {
   padding-top: 14px;
   padding-left: 5px;
 }
-.button-like {
-  border-radius: 50%;
-}
+
 .center-vert {
   align-items: center;
 }
@@ -452,37 +436,5 @@ button.bg-color:hover {
     width: 60%;
     margin: auto;
   }
-}
-
-label[for='file-modif-input'] {
-  font-weight: 500;
-  background-color: #e79f9f;
-  color: #4e5166;
-  border: 1px solid #4e5166;
-}
-label[for='file-modif-input']:hover {
-  background-color: #4e5166;
-  color: #ffff;
-}
-
-.bi-trash {
-  font-size: 18px;
-}
-.bi-hand-thumbs-up {
-  font-size: 18px;
-}
-
-/* ---------------------------- */
-.like__button:hover {
-  color: #ff6363;
-  cursor: pointer;
-}
-
-.like__count {
-  padding-left: 0.5rem;
-}
-
-.postLiked {
-  color: #ff6363;
 }
 </style>
