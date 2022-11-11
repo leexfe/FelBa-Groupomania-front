@@ -1,12 +1,12 @@
 ## PROJET  7 : GROUPOMANIA
 
-Dossier du frontend pour le projet 7 Groupomania
+Dossier du backend pour le projet 7 Groupomania
 
 ## Technologies utilisées 
 
-- VueJs3
-- Bootstrap-vue-3
-- ViteJs 
+- Node.js( v17.6.0), Express, JWT, Multer
+- MySQL hébergé par Planetscale pour créer une nouvelle base de donnée
+- Prisma interface(ORM) pour communiquer avec MySQL 
 
 ## Comment utiliser 
 
@@ -35,33 +35,3 @@ Dossier du frontend pour le projet 7 Groupomania
 
 2. On envoie la base de donnée créée avec Prisma dans la table MySQL de Planetscale avec la commande : 
 - `npx prisma db push`
-
-# vue-project
-
-This template should help get you started developing with Vue 3 in Vite.
-
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
