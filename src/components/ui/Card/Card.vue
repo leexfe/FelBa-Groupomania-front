@@ -44,6 +44,8 @@ export default {
   beforeCreate() {
     // Récupère token d'authentification, userId, isAdmin dans localStorage:
     const token = localStorage.getItem('token')
+    const userId = localStorage.getItem('userId')
+    console.log('userId in front:', userId);
     //redirige l'uilisateur vers la page de connexion si pas de token:
     if (token == null) {
       this.$router.push('/login')
@@ -166,14 +168,6 @@ export default {
           Accept: 'application/json',
         },
         method: 'POST',
-        //  body: JSON.stringify({
-        // likes: Number(newValue),
-        // like: like,
-        // likes: Number(likes),
-        // userIdPosting: this.userIdPosting,
-        // userId: this.userId,
-        // usersLiked: this.usersLiker,
-        // }),
       }
       //postId: this.$props.id n'est dans le body car on le passe en param dans l'url
       fetch(url + 'posts/' + this.id + '/like', options)
@@ -192,7 +186,6 @@ export default {
     generateInputId(id) {
       return 'inputFile' + id
     },
-   
   },
 }
 </script>
@@ -304,8 +297,10 @@ export default {
               </label>
             </div>
           </div>
+    
           <!-- ------- affichage j'aime -------------- -->
           <p class="text-like" v-if="isLiked "><b>J'aime</b></p>
+        
         </div>
         <div class="bold">likes: {{ usersLiker.length }}</div>
       </div>
