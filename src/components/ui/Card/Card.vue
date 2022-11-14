@@ -23,6 +23,7 @@ export default {
     'likes',
     'userIdPosting',
     'usersLiker',
+    'userIdLiker',
   ],
 
   data() {
@@ -31,12 +32,8 @@ export default {
       isAdmin: localStorage.getItem('isAdmin'),
       currentComment: null,
       isActive: false,
-      isLiked: false,
+      isLiked: '',
       selectedModifImage: null,
-
-      liked: [], //avec les id des posts aimés
-      like: '',
-
       usersLiker: this.$props.usersLiker,
     }
   },
@@ -45,12 +42,12 @@ export default {
     // Récupère token d'authentification, userId, isAdmin dans localStorage:
     const token = localStorage.getItem('token')
     const userId = localStorage.getItem('userId')
-    console.log('userId in front:', userId);
     //redirige l'uilisateur vers la page de connexion si pas de token:
     if (token == null) {
       this.$router.push('/login')
     }
   },
+
   methods: {
     // Envoie la data au serveur pour crér un nouveau commentaire puis récupère la réponse dans le DOM:
     sendToCreateComment() {
@@ -147,15 +144,10 @@ export default {
 
     sendToLikePost(e) {
       const isLiked = this.isLiked
-      console.log('isLiked', isLiked)
-
       const { VITE_SERVER_ADDRESS, VITE_SERVER_PORT } = import.meta.env
       const url = `http://${VITE_SERVER_ADDRESS}:${VITE_SERVER_PORT}/`
 
-      //attribue à likes la valeur 1 si isLiked est true sinon valeur 0:
-      const like = isLiked ? 1 : 0
-
-      if (like) {
+      if (isLiked) {
         this.usersLiker.push(this.userId)
       } else {
         this.usersLiker = this.usersLiker.filter((id) => id !== this.userId)
@@ -229,7 +221,7 @@ export default {
       <!----------- div Modif -------------- -->
       <div>
         <p class="card-text border-comment"></p>
-        <div  class="mt-4" v-show="isActive">
+        <div class="mt-4" v-show="isActive">
           <div class="d-flex bold">
             <p>Modifiez votre Post ci-dessous :</p>
             <i class="bi bi-arrow-down-square ms-2"></i>
@@ -291,16 +283,15 @@ export default {
               />
 
               <label v-bind:for="this.$props.id">
-                <div  @click="isLiked = !isLiked">
+                <div @click="isLiked = !isLiked">
                   <i class="icon-heart fas fa-heart"></i>
                 </div>
               </label>
             </div>
           </div>
-    
           <!-- ------- affichage j'aime -------------- -->
-          <p class="text-like" v-if="isLiked "><b>J'aime</b></p>
-        
+
+          <p class="text-like" v-if="isLiked"><b>J'aime</b></p>
         </div>
         <div class="bold">likes: {{ usersLiker.length }}</div>
       </div>

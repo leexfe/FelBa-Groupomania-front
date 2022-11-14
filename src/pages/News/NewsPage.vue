@@ -13,9 +13,7 @@ export default {
       isAdmin: localStorage.getItem('isAdmin'),
       posts: [],
       currentUser: null, //currentUser (utilisateur actuel) représente pour l'email
-      users: [],
-      userLiker: '',
-      userIdPosting: '',
+      users:[],
     }
   },
   // beforeCreate() initialise toutes les données et événements réactifs et s'exécute avant que le composant ne soit créé avant d'avoir acces aux données:
@@ -70,6 +68,7 @@ export default {
       <h1 class="titre-news text-center mt-3">News</h1>
       <div class="col-sm-12">
         <h2 class="text-center">Bienvenue: {{ currentUser }}</h2>
+       
         <div v-if="isAdmin == 'true'">
           <h2 class="text-center">administrateur: {{ isAdmin }}</h2>
         </div>
@@ -88,6 +87,7 @@ export default {
         <CardVue
           :currentUser="currentUser"
           :email="post.user.email"
+          :userIdLiker="post.user.id"
           :content="post.content"
           :url="post.imageUrl"
           :comments="post.comments"
