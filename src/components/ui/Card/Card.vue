@@ -35,6 +35,7 @@ export default {
       isLiked: '',
       selectedModifImage: null,
       usersLiker: this.$props.usersLiker,
+      liked:'',
     }
   },
 
@@ -113,7 +114,7 @@ export default {
         .then((res) => {
           console.log('res from sendToUpdatePost:', res)
           //rafraichit la page pour afficher le com:
-          //this.$router.go()
+          this.$router.go()
         })
         .catch((err) => console.log('err:', err))
     },
@@ -385,8 +386,8 @@ input[type='checkbox'] + label {
   cursor: pointer;
 }
 .like-container {
-  color: blue;
-  border: 1px solid #0d6efd;
+  color: #4E5166;
+  border: 1px solid #4E5166;
   border-radius: 5px;
 }
 
