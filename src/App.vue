@@ -15,11 +15,10 @@
   <AppNavbar/>
   <!-- le routeur résout et injecte tout le contenu de la navbar -->
  <router-view></router-view>
+ <!-- définit la zone de la page dans laquelle apparaîtra le composant que nous définissons dans chaque route -->
+ <!-- important si on imbrique des vues les unes dans les autres -->
 </div>
 </template>
 
-
-
 <style scoped>
- 
 </style>

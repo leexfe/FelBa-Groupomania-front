@@ -53,9 +53,6 @@ function isLoginRequired(to) {
   // - La fonction isLoginRequired vérifie si une page est privée ou non.
   // - Si la page est privée, elle vérifie si le token est présent dans le cache.
   // - Si le token n'est pas présent dans le cache, cela signifie que l'utilisateur n'est pas connecté et qu'il doit donc se connecter pour accéder à la page.
-
-  //if (!isTokenInCache()) return alert ("token not valid")
-  //console.log("OK! we are on a public page or we have token valid ! ");
 }
 
 // Définit ce que représente une page privée:

@@ -20,7 +20,6 @@ export default {
     'comments',
     'id',
     'postingId',
-    'likes',
     'userIdPosting',
     'usersLiker',
     'userIdLiker',

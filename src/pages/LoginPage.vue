@@ -104,7 +104,6 @@ function sendTologUser(email, password, router) {
       const isAdmin = res.user.isAdmin
       localStorage.setItem('isAdmin', isAdmin)
       const userId = res.user.id
-      console.log('userId',userId);
       localStorage.setItem('userId', userId)
       router.push('/home')
     })

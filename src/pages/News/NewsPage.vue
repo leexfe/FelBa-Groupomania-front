@@ -93,7 +93,6 @@ export default {
           :comments="post.comments"
           :id="post.id"
           :postingId="post.id"
-          :likes="post.likes"
           :userIdPosting="post.userIdPosting"
           :usersLiker="post.usersLiker"
         ></CardVue>

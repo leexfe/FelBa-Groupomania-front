@@ -14,7 +14,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue-3/dist/bootstrap-vue-3.css";
 
 // Créer une instance vue et l'attache à l'élément app qui va contenir l'application Vue.js:
-//Ne prend encharge que les balises component  de vueJS
+//Ne prend en charge que les balises component de vueJS
 const app = createApp(App);
 
 // Utilise la variable router comme routeur pour l'application Vue.js
